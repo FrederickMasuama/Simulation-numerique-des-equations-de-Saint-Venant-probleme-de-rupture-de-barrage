@@ -1,0 +1,34 @@
+Plan numérique/
+
+SWE/
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── rapport.pdf
+│   └── bibliographie.md
+│
+├── src/
+│   ├── main.f90
+│   ├── parameters.f90
+│   ├── flux.f90
+│   ├── solver.f90
+│   └── output.f90
+│
+├── tests/
+│   ├── burgers/
+│   └── shallow_water/
+│       └── dam_break/
+│
+├── data/
+│   └── ...
+│
+├── results/
+│   ├── burgers/
+│   └── dam_break/
+│
+├── scripts/
+│   └── plot_results.py
+│
+└── Makefile

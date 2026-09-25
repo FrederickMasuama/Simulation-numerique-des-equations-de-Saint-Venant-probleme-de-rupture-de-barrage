@@ -1,0 +1,7 @@
+#Fichiers compilés
+*.mod
+*.o
+
+#Executables
+
+*.exe
