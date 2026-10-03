@@ -1,0 +1,18 @@
+!parametres de simulation
+
+&maillage
+xmin= -5.0d0
+xmax = 5.0d0
+Nx = 100
+CFL = 0.8d0
+/
+
+&temps
+temps_final = 2.0d0
+/
+
+
+&vitesse
+a = 2.0d0
+/
+
