@@ -12,6 +12,8 @@ EXEC = $(BIN)/advection_exe
 OBJS = \
 $(OBJ)/mod_parametres.o \
 $(OBJ)/mod_initialisations.o \
+$(OBJ)/mod_flux.o \
+$(OBJ)/mod_solveur.o \
 
 .PHONY: all clean run plot
 
@@ -23,11 +25,21 @@ $(EXEC): $(OBJS)
 $(OBJ)/%.o: $(SRC)/%.f90
 	$(COMPILATEUR) $(OPTC) -J$(OBJ) -c $< -o $@
 
+#====================================================
 #dépendances des modules
 $(OBJ)/mod_initialisations.o: \
 $(OBJ)/mod_parametres.o \
 
+$(OBJ)/mod_flux.o: \
+$(OBJ)/mod_initialisations.o \
+$(OBJ)/mod_parametres.o \
 
+$(OBJ)/mod_solveur.o: \
+$(OBJ)/mod_flux.o \
+$(OBJ)/mod_initialisations.o \
+$(OBJ)/mod_parametres.o \
+
+#===================================================
 clean :
 	rm -f $(OBJ)/*.mod $(EXEC)
 
