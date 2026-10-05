@@ -4,7 +4,7 @@
 xmin= -5.0d0
 xmax = 5.0d0
 Nx = 100
-CFL = 0.8d0
+CFL = 1.0d0
 /
 
 &temps

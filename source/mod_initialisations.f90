@@ -5,26 +5,23 @@ MODULE initialisations
 
   IMPLICIT NONE
 
-  REAL(r8), ALLOCATABLE, SAVE :: x(:), u0(:), un(:)
+  
   INTEGER                     :: i
 
 CONTAINS
   
   !=========================================================
-  SUBROUTINE initialiser()
+  SUBROUTINE initialiser(x,u0)
     IMPLICIT NONE
 
-    CALL lire_parametres()
-    
-    ALLOCATE(x(0:Nx), u0(0:Nx),un(0:Nx))
-
-    x = xmin + [(REAL(i - 1, r8) *dx, i = 1, Nx)]   !discrétisation
+    REAL(r8), INTENT(OUT) :: x(0:Nx), u0(0:Nx)
 
     DO i = 0, Nx
-       u0(i) = cond_init(x(i))                      !solution_initiale
-    END DO
-
-    un = u0
+       
+   x(i) = xmin + REAL(i, r8) * dx
+   u0(i) = cond_init(x(i))
+   
+END DO
     
     END SUBROUTINE initialiser
 

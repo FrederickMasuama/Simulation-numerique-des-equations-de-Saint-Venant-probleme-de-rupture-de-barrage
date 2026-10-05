@@ -13,7 +13,6 @@ MODULE PARAMETRES
 
   !parametres temps
   REAL(r8) :: temps_final, dt
-  INTEGER  :: Nt
 
   !parametres vitesses
   REAL (r8) :: a
@@ -40,10 +39,8 @@ CONTAINS
     CLOSE(10, status="keep")
 
     Lx = xmax - xmin
-    dx = Lx/(Nx-1)
-    dt = CFL * dx/a
-
-    Nt = int(temps_final/dt)
+    dx = Lx/REAL(Nx,r8)
+    dt = CFL * dx/abs(a)
 
   END SUBROUTINE lire_parametres
   !=================================================================

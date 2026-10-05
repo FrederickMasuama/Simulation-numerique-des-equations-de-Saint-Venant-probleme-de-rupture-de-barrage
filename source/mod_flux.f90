@@ -1,7 +1,6 @@
 MODULE flux
 
   USE parametres
-  USE initialisations
   
     IMPLICIT NONE
 

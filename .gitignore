@@ -1,7 +1,12 @@
-#Fichiers compilés
-*.mod
-*.o
 
-#Executables
+# Compilation Fortran + exécutable
+obj/*.o
+obj/*.mod
+bin/*
 
-*.exe
+# Données générées
+data/solution.dat
+
+# Fichiers temporaires
+*.log
+*.tmp
