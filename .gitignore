@@ -1,12 +1,15 @@
 
-# Compilation Fortran + exécutable
-obj/*.o
-obj/*.mod
-bin/*
+# Compilation Fortran
+**/obj/*.o
+**/obj/*.mod
+**/bin/*
 
 # Données générées
-data/solution.dat
+**/data/solution.dat
 
 # Fichiers temporaires
 *.log
 *.tmp
+*~
+
+
