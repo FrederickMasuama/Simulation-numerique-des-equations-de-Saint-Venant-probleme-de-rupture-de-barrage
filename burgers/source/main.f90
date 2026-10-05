@@ -36,6 +36,7 @@ PROGRAM burgers
     DO WHILE (t < temps_final)
 
        CALL calcul_dt(u, dt)
+       
         ! Dernier pas éventuellement plus petit
         dt_step = MIN(dt, temps_final - t)
 

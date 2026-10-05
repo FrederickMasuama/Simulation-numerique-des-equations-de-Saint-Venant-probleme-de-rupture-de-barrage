@@ -3,8 +3,8 @@
 &maillage
 xmin= -10.0d0
 xmax = 10.0d0
-Nx = 100
-CFL = 1.0d0
+Nx = 1000
+CFL = 0.9d0
 /
 
 &temps

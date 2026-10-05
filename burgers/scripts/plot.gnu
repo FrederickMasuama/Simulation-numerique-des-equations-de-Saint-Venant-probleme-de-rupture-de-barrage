@@ -11,10 +11,10 @@ set xlabel "x"
 set ylabel "u(x,0)"
 
 set xrange [-5:5]
-set yrange [-0.1:5.0]
+set yrange [0:4.0]
 
 set xtics 1
-set ytics 0.1
+set ytics 0.2
 set grid
 
 plot "../data/solution_initiale.dat" using 1:2 \
@@ -34,10 +34,10 @@ set xlabel "x"
 set ylabel "u(x,t_f)"
 
 set xrange [-5:5]
-set yrange [-0.1:5.0]
+set yrange [0.8:3.2]
 
 set xtics 1
-set ytics 0.1
+set ytics 0.2
 set grid
 
 plot "../data/solution.dat" using 1:2 \
