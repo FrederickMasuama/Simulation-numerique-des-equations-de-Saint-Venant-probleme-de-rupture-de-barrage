@@ -6,6 +6,7 @@ OBJ = obj
 BIN = bin
 DATA = data
 SCRIPTS = scripts
+RESULTATS = resultats
 
 EXEC = $(BIN)/advection_exe
 
