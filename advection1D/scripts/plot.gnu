@@ -1,12 +1,12 @@
 set terminal pngcairo enhanced
 set output "../resultats/advection1D_VF.png"
 
-set title "Équation de transport - Lax-Friedrichs"
+set title "Équation d'Advection 1D - VF avec flux de Lax-Friedrichs"
 set xlabel "x"
 set ylabel "u(x,t)"
 
-set xrange [-5:5]
-set yrange [-0.1:1.1]
+set xrange [-3:8]
+set yrange [-0.1:1.5]
 
 set xtics 1
 set ytics 0.1
@@ -19,5 +19,3 @@ plot \
         with lines lw 2 title "Solution finale"
 
 set output
-
-pause -1

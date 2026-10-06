@@ -1,9 +1,9 @@
 !parametres de simulation
 
 &maillage
-xmin= -5.0d0
-xmax = 5.0d0
-Nx = 100
+xmin= -6.0d0
+xmax = 6.0d0
+Nx = 1000
 CFL = 1.0d0
 /
 
