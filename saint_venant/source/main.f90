@@ -1,8 +1,7 @@
-PROGRAM burgers
+PROGRAM saint_venant
 
   USE parametres
   USE initialisations
-  USE flux
   USE solveur
   USE sortie
 
@@ -10,10 +9,10 @@ PROGRAM burgers
   IMPLICIT NONE
   
   REAL(r8), ALLOCATABLE :: x(:)
-  REAL(r8), ALLOCATABLE :: u(:)
-  REAL(r8), ALLOCATABLE :: un(:)
-  !INTEGER                :: Nx
-  REAL(r8)               :: t, dt_step
+  REAL(r8), ALLOCATABLE :: U(:,:)
+  REAL(r8), ALLOCATABLE :: Un(:,:)
+  REAL(r8)              :: t, dt_step
+  INTEGER               :: frame
 
   !===============!
   !initialisations!
@@ -21,12 +20,15 @@ PROGRAM burgers
   CALL lire_parametres()
   
   ALLOCATE(x(0:Nx))
-  ALLOCATE(u(0:Nx))
-  ALLOCATE(un(0:Nx))
+  ALLOCATE(U(2,0:Nx))
+  ALLOCATE(Un(2,0:Nx))
 
-  CALL initialiser(x,u)
+  CALL initialiser(x,U)
+  CALL ecrire_solution_initiale(x, U)
 
-  CALL ecrire_solution_initiale(x, u)
+  frame = 0
+  CALL ecrire_frame(frame, x, U)
+  
   !==============!
   !boucleen temps!
   !==============!
@@ -35,26 +37,38 @@ PROGRAM burgers
 
     DO WHILE (t < temps_final)
 
-       CALL calcul_dt(u, dt)
+       CALL calcul_dt(U, dt)
        
         ! Dernier pas éventuellement plus petit
         dt_step = MIN(dt, temps_final - t)
 
-        CALL solveur_lax_friedrichs(u, un, dt_step)
+        CALL solveur_lax_friedrichs(U, Un, dt_step)
 
         ! Passage de U^(n+1) à U^n
-        u = un
+        U = Un
 
         ! Avancement du temps
         t = t + dt_step
 
+         ! Enregistrement d'une nouvelle image
+        frame = frame + 1
+        CALL ecrire_frame(frame, x, U)
+   
      END DO
+
+     OPEN(UNIT=70, FILE="nb_frames.dat", STATUS="REPLACE", ACTION="WRITE")
+
+     WRITE(70,*) frame
+
+     CLOSE(70)
 
      !=========!
      !affichage!
      !=========!
-     CALL ecrire_solution(x, u)
+     CALL ecrire_solution(x, U)
      CALL ecrire_parametres()
 
+     DEALLOCATE(x, U, Un)
+
      
-  END PROGRAM burgers 
+  END PROGRAM saint_venant 

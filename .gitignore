@@ -12,4 +12,10 @@
 *.tmp
 *~
 
+# Images intermédiaires de l'animation
+data/frame_*.dat
+data/nb_frames.dat
 
+# Fichiers de données générés, si nécessaire
+data/solution.dat
+data/parametres_plot.dat
