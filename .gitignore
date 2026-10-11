@@ -1,21 +1,64 @@
+# ==================================================
+# COMPILATION FORTRAN / C / C++
+# ==================================================
 
-# Compilation Fortran
-**/obj/*.o
-**/obj/*.mod
+# Fichiers objets
+*.o
+*.obj
+
+# Modules Fortran
+*.mod
+*.smod
+
+# Bibliothèques compilées
+*.a
+*.so
+*.dll
+*.dylib
+
+# Exécutables générés
+# Convention : les exécutables sont placés dans bin/
 **/bin/*
 
-# Données générées
-**/data/solution.dat
 
-# Fichiers temporaires
+# ==================================================
+# DONNEES GENEREES PAR LES SIMULATIONS
+# ==================================================
+
+# Fichiers intermédiaires des animations
+**/data/frame_*.dat
+**/data/nb_frames*.dat
+
+# Solutions numériques générées
+**/data/solution*.dat
+**/data/comparaison*.dat
+
+# Fichiers de paramètres générés automatiquement pour les tracés
+**/data/parametres_plot.dat
+
+
+# ==================================================
+# FICHIERS TEMPORAIRES
+# ==================================================
+
 *.log
 *.tmp
 *~
+*.bak
+*.swp
+*.swo
 
-# Images intermédiaires de l'animation
-data/frame_*.dat
-data/nb_frames.dat
+# Fichiers temporaires de certains éditeurs
+.DS_Store
+Thumbs.db
 
-# Fichiers de données générés, si nécessaire
-data/solution.dat
-data/parametres_plot.dat
+
+# ==================================================
+# ENVIRONNEMENTS ET OUTILS
+# ==================================================
+
+# Dossiers de compilation
+**/obj/
+
+# Configuration locale de certains éditeurs
+.vscode/
