@@ -14,20 +14,13 @@ Ce projet constitue une première étape vers l'étude de problèmes hyperboliqu
 
 On considère l'équation d'advection :
 
-$$
-\frac{\partial u}{\partial t}
-+
-a\frac{\partial u}{\partial x}
-=0,
-$$
+$$ \frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} =0, $$
 
 avec une vitesse de propagation constante \(a\).
 
 La solution exacte est simplement le transport du profil initial :
 
-$$
-u(x,t)=u_0(x-at).
-$$
+$$ u(x,t)=u_0(x-at). $$
 
 Le problème est donc un modèle simple permettant d'étudier la propagation d'informations sans déformation physique du profil.
 
@@ -37,36 +30,19 @@ Le problème est donc un modèle simple permettant d'étudier la propagation d'i
 
 On discrétise le domaine spatial en \(N_x\) cellules de taille
 
-$$
-\Delta x=\frac{x_{\max}-x_{\min}}{N_x}.
-$$
+$$ \Delta x=\frac{x_{\max}-x_{\min}}{N_x}. $$
 
 La forme conservative de l'équation est
 
-$$
-\frac{\partial u}{\partial t}
-+
-\frac{\partial f(u)}{\partial x}=0,
-$$
+$$ \frac{\partial u}{\partial t} + \frac{\partial f(u)}{\partial x}=0, $$
 
 avec le flux physique
 
-$$
-f(u)=au.
-$$
+$$ f(u)=au. $$
 
 La méthode des volumes finis conduit au schéma :
 
-$$
-U_i^{n+1}
-=
-U_i^n
--
-\frac{\Delta t}{\Delta x}
-\left(
-F_{i+1/2}^n-F_{i-1/2}^n
-\right).
-$$
+$$ U_i^{n+1} = U_i^n - \frac{\Delta t}{\Delta x} \left(F_{i+1/2}^n-F_{i-1/2}^n \right). $$
 
 ---
 
@@ -180,27 +156,27 @@ afin d'observer la convergence vers la solution exacte.
 
 ```text
 advection1D/
-├── source/
-│   ├── main.f90
-│   ├── mod_parametres.f90
-│   ├── mod_initialisations.f90
-│   ├── mod_flux.f90
-│   ├── mod_solveur.f90
-│   └── mod_sortie.f90
+|__source/
+│   |__ main.f90
+│   |__ mod_parametres.f90
+│   |__ mod_initialisations.f90
+│   |__ mod_flux.f90
+│   |__ mod_solveur.f90
+│   |__ mod_sortie.f90
 │
-├── data/
-│   ├── parametres.nml
-│   ├── solution.dat
-│   └── solution_initiale.dat
+|__data/
+│   |__ parametres.nml
+│   |__ solution.dat
+│   |__ solution_initiale.dat
 │
-├── scripts/
-│   └── plot.gnu
+|__scripts/
+│   |__ plot.gnu
 │
-├── resultats/
-├── obj/
-├── bin/
-├── Makefile
-└── .gitignore
+|__resultats/
+|__ obj/
+|__ bin/
+|__ Makefile
+|__ .gitignore
 ```
 
 Les modules sont séparés selon leur rôle :
@@ -216,7 +192,7 @@ Les modules sont séparés selon leur rôle :
 
 ## 8. Compilation et exécution
 
-Le projet utilise **Fortran 90/2003+** avec `gfortran`.
+Le projet utilise **Fortran** avec `gfortran`.
 
 Depuis la racine du projet :
 
@@ -278,5 +254,5 @@ où apparaissent progressivement la non-linéarité, les chocs, les raréfaction
 
 ## Licence
 
-Projet réalisé dans le cadre d'un travail personnel en **Master 2 MACS — Modélisation, Analyse Numérique et Calcul Scientifique** à Nantes Université.
+Projet réalisé dans le cadre d'un travail académique de fin de **Master 1 MACS — Modélisation, Analyse Numérique et Calcul Scientifique** à Nantes Université.
  
