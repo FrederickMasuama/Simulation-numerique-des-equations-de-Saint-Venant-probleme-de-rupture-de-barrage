@@ -97,31 +97,35 @@ END SUBROUTINE ecrire_parametres
 
 END SUBROUTINE ecrire_solution_initiale
 !=============================================================
-  ! Ecriture d'une image intermediaire de la simulation
 
+! Enregistrement d'une image pour l'animation GIF
 
-  SUBROUTINE ecrire_frame(k, x, U)
+SUBROUTINE ecrire_frame(k, x, U, schema)
 
     IMPLICIT NONE
 
     INTEGER, INTENT(IN) :: k
     REAL(r8), INTENT(IN) :: x(0:Nx)
     REAL(r8), INTENT(IN) :: U(2,0:Nx)
+    CHARACTER(LEN=*), INTENT(IN) :: schema
 
     INTEGER :: i
-    CHARACTER(LEN=64) :: simulation
+    CHARACTER(LEN=100) :: nom_fichier
 
-    WRITE(simulation,'("frame_",I5.5,".dat")') k
+    ! Construction du nom du fichier
+    WRITE(nom_fichier,'("frame_",A,"_",I5.5,".dat")') &
+         TRIM(schema), k
 
-    OPEN(UNIT=50, FILE=TRIM(simulation), &
+    OPEN(UNIT=50, FILE=TRIM(nom_fichier), &
          STATUS="REPLACE", ACTION="WRITE")
 
     DO i = 0, Nx
-       WRITE(50,*) x(i), U(1,i)
+        WRITE(50,*) x(i), U(1,i)
     END DO
 
     CLOSE(50)
 
-  END SUBROUTINE ecrire_frame
+END SUBROUTINE ecrire_frame
 !=============================================================
+
 END MODULE sortie

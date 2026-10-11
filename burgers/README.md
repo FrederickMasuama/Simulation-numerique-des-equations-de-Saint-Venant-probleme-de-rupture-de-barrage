@@ -4,18 +4,11 @@
 
 Ce projet étudie numériquement l'**équation de Burgers scalaire 1D** sous sa forme conservative :
 
-$$
-\frac{\partial u}{\partial t}
-+
-\frac{\partial f(u)}{\partial x}
-=0,
-$$
+$$ \frac{\partial u}{\partial t} + \frac{\partial f(u)}{\partial x} =0, $$
 
 avec le flux physique
 
-$$
-f(u)=\frac{u^2}{2}.
-$$
+$$ f(u)=\frac{u^2}{2}. $$
 
 L'équation de Burgers constitue une étape intermédiaire entre l'équation de transport linéaire et les systèmes hyperboliques non linéaires. Elle permet notamment d'étudier la formation de **chocs** et de **raréfactions** à partir de problèmes de Riemann.
 
@@ -53,11 +46,13 @@ Contrairement à l'équation de transport linéaire, la vitesse de propagation d
 
 Une condition initiale discontinue est utilisée afin d'étudier les structures caractéristiques des équations hyperboliques :
 
-$$ u(x,0)=
+$$
+u(x,0)=
 \begin{cases}
-u_L & \text{si }x<x_0,\\
-u_R & \text{si }x\geq x_0.
-\end{cases} $$
+u_L & \text{si } x < x_0,\\
+u_R & \text{si } x \geq x_0.
+\end{cases}
+$$
 
 Deux situations fondamentales peuvent être étudiées.
 
@@ -101,22 +96,9 @@ $$ C_i=[x_{i-\frac12},x_{i+\frac12}]. $$
 
 En notant \(U_i^n\) la moyenne de \(u\) sur la cellule \(i\) au temps \(t^n\), l'intégration de l'équation conduit au schéma conservatif :
 
-$$
-\boxed{
-U_i^{n+1}
-=
-U_i^n
--
-\frac{\Delta t}{\Delta x}
-\left(
-F_{i+\frac12}^n
--
-F_{i-\frac12}^n
-\right)
-}
-$$
+$$ \boxed{U_i^{n+1} = U_i^n - \frac{\Delta t}{\Delta x} \left(F_{i+\frac{1}{2}}^n - F_{i-\frac{1}{2}}^n \right)} $$
 
-où \(F_{i+\frac12}\) représente le flux numérique à l'interface entre deux cellules.
+où $\(F_{i+\frac12}\)$ représente le flux numérique à l'interface entre deux cellules.
 
 Cette formulation permet de respecter directement la structure conservative de l'équation.
 
@@ -128,9 +110,9 @@ Le flux numérique utilisé dans ce projet est le flux de Lax-Friedrichs :
 
 $$
 \boxed{
-F_{i+\frac12}
+F_{i+\frac{1}{2}}
 =
-\frac12
+\frac{1}{2}
 \left[
 f(U_i)+f(U_{i+1})
 \right]
@@ -178,15 +160,7 @@ Dans le programme, le pas de temps est recalculé à chaque itération afin de t
 
 Le dernier pas de temps est éventuellement ajusté afin d'atteindre exactement le temps final :
 
-$$
-\Delta t_{\text{step}}
-=
-\min
-\left(
-\Delta t,\,
-t_f-t
-\right).
-$$
+$$ \Delta t_{\text{step}} = \min \left(\Delta t,\,t_f-t \right). $$
 
 ---
 
@@ -310,7 +284,7 @@ make clean
 
 ## 10. Environnement et outils
 
-* **Fortran 90/2008** — implémentation numérique
+* **Fortran** — implémentation numérique
 * **gfortran** — compilation
 * **GNU Make** — automatisation de la compilation et de l'exécution
 * **Gnuplot** — visualisation des résultats

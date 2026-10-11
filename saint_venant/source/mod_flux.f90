@@ -29,7 +29,7 @@ CONTAINS
         REAL(r8), INTENT(IN) :: UL(2), UR(2)
         REAL(r8), INTENT(IN) :: dx, dt
         REAL(r8)             :: F(2)
-        REAL(r8)             :: FL(2), FR(2)
+        !REAL(r8)             :: FL(2), FR(2)
 
         F = 0.5_r8 * (flux_physique(UL) + &
                      flux_physique(UR)) &
