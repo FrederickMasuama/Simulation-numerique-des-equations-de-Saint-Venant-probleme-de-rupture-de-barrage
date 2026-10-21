@@ -4,7 +4,7 @@ Ce projet porte sur l'implémentation et l'étude de méthodes numériques
 pour la résolution d'équations aux dérivées partielles (EDP), en particulier
 les lois de conservation hyperboliques.
 
-Développé dans le cadre du Master 2 MACS
+Développé dans le cadre du SSPM (Supervised Study Project in Mathematics): projet de fin de Master 1 MACS 
 (Modélisation, Analyse Numérique et Calcul Scientifique) à Nantes Université,
 il regroupe trois études numériques complémentaires, allant d'une équation
 de transport linéaire à un système non linéaire décrivant les écoulements
@@ -26,10 +26,10 @@ Le dépôt est organisé en trois parties.
 
 Étude numérique de l'équation de transport linéaire :
 
-\[
+$$\[
 \frac{\partial u}{\partial t}
 +a\frac{\partial u}{\partial x}=0.
-\]
+\]$$
 
 Cette première partie permet d'étudier le transport d'un profil initial
 et de comprendre le fonctionnement d'un schéma de volumes finis.
@@ -43,11 +43,11 @@ Objectifs :
 
 Étude de l'équation de Burgers sous forme conservative :
 
-\[
+$$\[
 \frac{\partial u}{\partial t}
 +\frac{\partial}{\partial x}
 \left(\frac{u^2}{2}\right)=0.
-\]
+\]$$
 
 Cette équation non linéaire permet d'étudier des phénomènes absents
 de l'équation de transport linéaire, notamment la formation de chocs
@@ -65,14 +65,14 @@ appliquées notamment au problème de rupture de barrage.
 
 Le système s'écrit sous forme conservative :
 
-\[
+$$\[
 \frac{\partial U}{\partial t}
 +\frac{\partial F(U)}{\partial x}=0,
-\]
+\]$$
 
 avec
 
-\[
+$$\[
 U=
 \begin{pmatrix}
 h\\
@@ -84,7 +84,7 @@ F(U)=
 q\\
 \dfrac{q^2}{h}+\dfrac{1}{2}gh^2
 \end{pmatrix}.
-\]
+\]$$
 
 où \(h\) représente la hauteur d'eau, \(q=hu\) le débit par unité
 de largeur et \(g\) l'accélération de la pesanteur.
@@ -108,7 +108,7 @@ Les méthodes étudiées dans ce projet comprennent :
 - le limiteur de pente Minmod ;
 - le contrôle du pas de temps par une condition CFL.
 
-## Technologies utilisées
+## Outils utilisés
 
 - **Fortran 90** — programmation scientifique ;
 - **GNU Fortran (`gfortran`)** — compilation ;
@@ -124,3 +124,4 @@ Les méthodes étudiées dans ce projet comprennent :
 |__ burgers/
 |__ saint_venant/
 |__ README.md
+|__ Docs
